@@ -1,0 +1,61 @@
+
+#Add New User
+#peer chaincode invoke -o orderer.india.com:7050  --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/india.com/orderers/orderer.india.com/msp/tlscacerts/tlsca.india.com-cert.pem  -C $CHANNEL_NAME -n democc --peerAddresses peer0.org1.india.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.india.com/peers/peer0.org1.india.com/tls/ca.crt -c '{"Args":["createUser","Aman","aman.jain@debutinfotech.com","9876543210","phase 8b, mohali"]}'
+--------------------------------------------------------------------------------------------------
+# Add new user output:
+
+result: status:200 payload:"{\"_id\":\"91a6323b10f39392d2528c6e4ba3b366694f6f539ae28a91794c902af5cf4935\",\"name\":\"Aman\",\"email\":\"aman.jain@debutinfotech.com\",\"phone\":\"9876543210\",\"address\":\"phase 8b, mohali\",\"wallet_balance\":100,\"doc_type\":\"users\"}"
+---------------------------------------------------------------------------------------------------
+
+
+
+# get user
+#peer chaincode invoke -o orderer.india.com:7050  --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/india.com/orderers/orderer.india.com/msp/tlscacerts/tlsca.india.com-cert.pem  -C $CHANNEL_NAME -n democc --peerAddresses peer0.org1.india.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.india.com/peers/peer0.org1.india.com/tls/ca.crt -c '{"Args":["getUser","91a6323b10f39392d2528c6e4ba3b366694f6f539ae28a91794c902af5cf4935"]}'
+--------------------------------------------------------------------------------------------------
+# get user output:
+result: status:200 payload:"{\"address\":\"phase 8b, mohali\",\"doc_type\":\"users\",\"email\":\"aman.jain@debutinfotech.com\",\"name\":\"Aman\",\"phone\":\"9876543210\",\"wallet_balance\":95}"
+---------------------------------------------------------------------------------------------------
+
+
+
+# get users
+#peer chaincode invoke -o orderer.india.com:7050  --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/india.com/orderers/orderer.india.com/msp/tlscacerts/tlsca.india.com-cert.pem  -C $CHANNEL_NAME -n democc --peerAddresses peer0.org1.india.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.india.com/peers/peer0.org1.india.com/tls/ca.crt -c '{"Args":["getUsers","91a6323b10f39392d2528c6e4ba3b366694f6f539ae28a91794c902af5cf4935"]}'
+--------------------------------------------------------------------------------------------------
+# get users output:
+
+result: status:200 payload:"{users: [{\"_id\":\"bbc4a5fd605e2638706a3073676060782f6272f992aeb4fb14174d6c5757755f\",\"name\":\"Rahul\",\"email\":\"rahul@debutinfotech.com\",\"phone\":\"9876543210\",\"address\":\"phase 8b, mohali\",\"wallet_balance\":100,\"doc_type\":\"users\"}]}"
+---------------------------------------------------------------------------------------------------
+
+
+
+#add asset
+#peer chaincode invoke -o orderer.india.com:7050  --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/india.com/orderers/orderer.india.com/msp/tlscacerts/tlsca.india.com-cert.pem  -C $CHANNEL_NAME -n democc --peerAddresses peer0.org1.india.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.india.com/peers/peer0.org1.india.com/tls/ca.crt -c '{"Args":["addAsset","91a6323b10f39392d2528c6e4ba3b366694f6f539ae28a91794c902af5cf4935","AML","2000"]}'
+--------------------------------------------------------------------------------------------------
+# add asset output:
+
+result: status:200
+---------------------------------------------------------------------------------------------------
+
+
+
+# get assets
+#peer chaincode invoke -o orderer.india.com:7050  --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/india.com/orderers/orderer.india.com/msp/tlscacerts/tlsca.india.com-cert.pem  -C $CHANNEL_NAME -n democc --peerAddresses peer0.org1.india.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.india.com/peers/peer0.org1.india.com/tls/ca.crt -c '{"Args":["getAssets","91a6323b10f39392d2528c6e4ba3b366694f6f539ae28a91794c902af5cf4935"]}'
+--------------------------------------------------------------------------------------------------
+# get assets output:
+
+result: status:200 payload:"{assets: [{\"code\":\"AML\",\"doc_type\":\"assets\",\"quantity\":1970,\"user_id\":\"91a6323b10f39392d2528c6e4ba3b366694f6f539ae28a91794c902af5cf4935\"}],transactions: [{\"code\":\"AML\",\"doc_type\":\"transactions\",\"quantity\":10,\"type\":1,\"user_id\":\"91a6323b10f39392d2528c6e4ba3b366694f6f539ae28a91794c902af5cf4935\"},{\"code\":\"AML\",\"doc_type\":\"transactions\",\"quantity\":10,\"type\":1,\"user_id\":\"91a6323b10f39392d2528c6e4ba3b366694f6f539ae28a91794c902af5cf4935\"},{\"code\":\"AML\",\"doc_type\":\"transactions\",\"quantity\":10,\"type\":1,\"user_id\":\"91a6323b10f39392d2528c6e4ba3b366694f6f539ae28a91794c902af5cf4935\"}]}" 
+---------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+# transfer asset
+#peer chaincode invoke -o orderer.india.com:7050  --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/india.com/orderers/orderer.india.com/msp/tlscacerts/tlsca.india.com-cert.pem  -C $CHANNEL_NAME -n democc --peerAddresses peer0.org1.india.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.india.com/peers/peer0.org1.india.com/tls/ca.crt -c '{"Args":["transferAsset","91a6323b10f39392d2528c6e4ba3b366694f6f539ae28a91794c902af5cf4935","bbc4a5fd605e2638706a3073676060782f6272f992aeb4fb14174d6c5757755f","AML","10"]}'
+--------------------------------------------------------------------------------------------------
+# transfer asset output:
+
+result: status:200 
+---------------------------------------------------------------------------------------------------
+
